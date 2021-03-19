@@ -1,0 +1,25 @@
+<div class="container col-lg-4 ">
+  <h1>login</h1>
+  <form action="auth/local" method='post'>
+    <div class="form-group py-2">
+      <label for="email">email</label>
+      <input class="form-control" type="text" name='email' placeholder='enter email'>
+
+    </div>
+    <div class="form-group py-2"> <label for="password">password</label>
+      <input class="form-control" type="password" name="password" placeholder="enter password"></div>
+
+    <button class="btn btn-primary  col-12 my-2" type="submit">login</button>
+  </form>
+
+  <div class='button-group d-flex justify-content-center  col-12 '>
+    <a class='btn btn-primary w-50 me-1' href=' auth/google'>google</a>
+
+    <a href='auth/facebook' class='btn btn-primary w-50 ms-1 '>facebook</a>
+  </div>
+
+
+  <p class='text-center'>new to this site? please <a href="/signup">sign up</a></p>
+
+
+</div>
