@@ -1,5 +1,5 @@
 {
-  "name": "mongo-express-handlebars-passport",
+  "name": "3rd-party-auth-passport",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
