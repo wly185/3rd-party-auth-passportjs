@@ -1,13 +1,10 @@
-const express = require("express");
-const connectDB = require("./config/db.js");
-const cookieSession = require("cookie-session");
-const passport = require("passport");
-const handlebars = require("express-handlebars");
-const path = require("path");
-// const dotenv = require("dotenv");
-
-//secret keys
-// dotenv.config();
+const express = require('express');
+const connectDB = require('../db');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+const handlebars = require('express-handlebars');
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 //mongodb
 connectDB();
@@ -16,13 +13,13 @@ connectDB();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-const publicPath = path.resolve(__dirname, "public");
+const publicPath = path.resolve(__dirname, 'public');
 app.use(express.static(publicPath));
 
 //views
-app.set("views", __dirname + "/views");
-app.engine("handlebars", handlebars());
-app.set("view engine", "handlebars");
+app.set('views', __dirname + '/views');
+app.engine('handlebars', handlebars());
+app.set('view engine', 'handlebars');
 
 //user session
 app.use(
@@ -36,29 +33,29 @@ app.use(passport.session());
 
 //routes
 //passport routes
-app.use("/auth/google", require("./routes/auth/google"));
-app.use("/auth/facebook", require("./routes/auth/facebook"));
-app.use("/auth/local", require("./routes/auth/local"));
+app.use('/auth/google', require('./routes/auth/google'));
+app.use('/auth/facebook', require('./routes/auth/facebook'));
+app.use('/auth/local', require('./routes/auth/local'));
 //
-app.use("/signup", require("./routes/auth/signup"));
-app.use("/profile", require("./routes/profile"));
+app.use('/signup', require('./routes/auth/signup'));
+app.use('/profile', require('./routes/profile'));
 
 //routes
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   //views
-  res.render("home");
+  res.render('home');
 });
-app.get("/login", (req, res) => {
+app.get('/login', (req, res) => {
   //views
-  res.render("login");
+  res.render('login');
 });
-app.get("/logout", (req, res) => {
+app.get('/logout', (req, res) => {
   //passport.req.logout
   req.logout();
-  res.redirect("/");
+  res.redirect('/');
 });
 
 //listen//port
 app.listen(8080 || process.env.PORT, () => {
-  console.log("server started");
+  console.log('server started');
 });
