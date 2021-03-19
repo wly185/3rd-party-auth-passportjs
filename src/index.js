@@ -4,7 +4,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const handlebars = require('express-handlebars');
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+// require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
 //mongodb
 connectDB();
