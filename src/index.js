@@ -56,6 +56,6 @@ app.get('/logout', (req, res) => {
 });
 
 //listen//port
-app.listen(8080 || process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('server started');
 });
